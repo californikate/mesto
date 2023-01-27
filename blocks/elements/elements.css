@@ -1,33 +1,32 @@
-.footer {
+.elements {
   max-width: 100%;
-  padding: 67px 200px 60px;
+  padding: 50px 200px 0;
   box-sizing: border-box;
 }
 
 @media screen and (max-width:1096px) {
-  .footer {
+  .elements {
     padding-right: 100px;
     padding-left: 100px;
   }
 }
 
 @media screen and (max-width:980px) {
-  .footer {
+  .elements {
     padding-right: 50px;
     padding-left: 50px;
   }
 }
 
 @media screen and (max-width:768px) {
-  .footer {
+  .elements {
     padding-right: 19px;
     padding-left: 19px;
   }
 }
 
 @media screen and (max-width: 560px) {
-  .footer {
-    padding-top: 48px;
-    padding-bottom: 36px;
+  .elements {
+    padding-top: 36px;
   }
 }
