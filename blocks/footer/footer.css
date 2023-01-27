@@ -1,31 +1,29 @@
-.header {
+.footer {
   max-width: 100%;
-  padding: 45px 200px 0;
+  padding: 67px 200px 60px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
 }
 
 @media screen and (max-width:1096px) {
-  .header {
-    padding: 45px 100px 0;
+  .footer {
+    padding: 67px 100px 60px;
   }
 }
 
 @media screen and (max-width:980px) {
-  .header {
-    padding: 45px 50px 0;
+  .footer {
+    padding: 67px 50px 60px;
   }
 }
 
 @media screen and (max-width:768px) {
-  .header {
-    padding: 45px 19px 0;
+  .footer {
+    padding: 67px 19px 60px;
   }
 }
 
 @media screen and (max-width: 560px) {
-  .header {
-    padding: 28px 0 0;
+  .footer {
+    padding: 48px 19px 36px;
   }
 }
