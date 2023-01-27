@@ -1,5 +1,5 @@
 .element__like-button {
-  background-image: url(./images/like-button.svg);
+  background-image: url(../../../images/like-button.svg);
   width: 22px;
   height: 19px;
   margin: 30px 20px 30px 0;
@@ -10,6 +10,6 @@
 }
 
 .element__like-button:active {
-  background-image: url(./images/like-button_active.svg);
+  background-image: url(../../../images/like-button_active.svg);
   opacity: 1;
 }
