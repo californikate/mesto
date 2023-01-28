@@ -10,7 +10,6 @@
   font-size: 14px;
   line-height: 1.2;
 
-  outline: none;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   background-color: transparent;
@@ -18,6 +17,11 @@
 
 .popup__form:last-of-type {
   margin-bottom: 48px;
+}
+
+.popup__form:focus {
+  outline: 1px solid rgba(0, 0, 0, .2);
+  border-bottom: none;
 }
 
 @media screen and (max-width: 560px) {
