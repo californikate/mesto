@@ -2,9 +2,11 @@
   max-width: 100%;
   padding: 40px 200px 0;
   box-sizing: border-box;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 31px;
 }
 
 @media screen and (max-width: 1096px) {
