@@ -1,6 +1,5 @@
 .profile {
-  max-width: 100%;
-  padding: 40px 200px 0;
+  padding-top: 40px;
   box-sizing: border-box;
   
   display: flex;
@@ -9,29 +8,15 @@
   gap: 31px;
 }
 
-@media screen and (max-width: 1096px) {
-  .profile {
-    padding-right: 100px;
-    padding-left: 100px;
-  }
-}
-
-@media screen and (max-width: 980px) {
-  .profile {
-    padding-right: 50px;
-    padding-left: 50px;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .profile {
-    padding-right: 19px;
-    padding-left: 19px;
+    flex-direction: column;
   }
 }
 
 @media screen and (max-width: 560px) {
   .profile {
-    flex-direction: column;
+    padding-left: 19px;
+    padding-right: 19px;
   }
 }
