@@ -7,8 +7,8 @@ const closeButton = document.querySelector('.popup__close-button');
 
 // определяем переменные для значения полей "Имя" и "О себе"
 
-const nameInput = document.querySelector('.popup__form_name');
-const jobInput = document.querySelector('.popup__form_job');
+const nameInput = document.querySelector('.popup__input-name');
+const jobInput = document.querySelector('.popup__input-job');
 
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
@@ -17,29 +17,30 @@ const profileSubtitle = document.querySelector('.profile__subtitle');
 
 const formElement = document.querySelector('.popup__form-element');
 
+// toggle добавления/удаления класса для открытия/закрытия попапа
 function toggleOpenPopup() {
   popup.classList.toggle('popup_opened');
 };
 
+// функция открытия попапа по клику на кнопку "Редактировать"
 function handleEditButtonClick() {
   toggleOpenPopup();
-
   // При открытии формы поля "Имя" и "О себе" заполнены теми значениями, которые отображаются на странице
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
 };
 
+// функция закрытия попапа по клику на кнопку "Закрыть"
 function handleCloseButtonClick() {
   toggleOpenPopup();
 };
 
-// дополнительно закрытие окна по клику на оверлэй
-
-function handleOverlayClick(event) {
+// дополнительно закрытие окна по клику на оверлэй - необходимо отредактировать
+/* function handleOverlayClick(event) {
   if (event.target === event.currentTarget) {
     toggleOpenPopup();
   }
-};
+}; */
 
 // Специальное событие submit отправляет форму
 
@@ -56,6 +57,6 @@ function handleFormSubmit (evt) {
 
 editButton.addEventListener('click', handleEditButtonClick); // кнопка Редактировать
 closeButton.addEventListener('click', handleCloseButtonClick); // кнопка закрыть попап
-popup.addEventListener('click', handleOverlayClick); // клик на оверлэй
+// popup.addEventListener('click', handleOverlayClick); // клик на оверлэй
 
 formElement.addEventListener('submit', handleFormSubmit); // отправка новых данных
