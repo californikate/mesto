@@ -2,7 +2,7 @@
   background-image: url(../../../images/like-button.svg);
   width: 22px;
   height: 19px;
-  margin: 30px 20px 30px 0;
+  padding: 0;
 }
 
 .element__like-button:hover {
