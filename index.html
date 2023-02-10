@@ -28,51 +28,7 @@
       <button type="button" class="profile__add-button button"></button>
     </section>
     <section class="elements" aria-label="карточки мест">
-      <ul class="elements__items">
-        <li class="element">
-          <img class="element__photo" src="./images/altai.jpg" alt="Алтайские горы.">
-          <div class="element__info">
-            <h2 class="element__title">Алтай</h2>
-            <button type="button" class="element__like-button button"></button>
-          </div>
-          
-        </li>
-        <li class="element">
-          <img class="element__photo" src="./images/elbrus1.jpg" alt="гора Эльбрус.">
-          <div class="element__info">
-            <h2 class="element__title">Эльбрус</h2>
-            <button type="button" class="element__like-button button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__photo" src="./images/prielbrus.jpg" alt="природа Приэльбрусья.">
-          <div class="element__info">
-            <h2 class="element__title">Приэльбрусье</h2>
-            <button type="button" class="element__like-button button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__photo" src="./images/baikal.jpg" alt="зимний Байкал.">
-          <div class="element__info">
-            <h2 class="element__title">Байкал</h2>
-            <button type="button" class="element__like-button button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__photo" src="./images/kamchatka1.jpg" alt="природа Камчатки.">
-          <div class="element__info">
-            <h2 class="element__title">Камчатский край</h2>
-            <button type="button" class="element__like-button button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__photo" src="./images/dagestan.jpg" alt="Сулакский каньон.">
-          <div class="element__info">
-            <h2 class="element__title">Дагестан</h2>
-            <button type="button" class="element__like-button button"></button>
-          </div>
-        </li>
-      </ul>
+      <ul class="elements__items"></ul>
     </section>
   </main>
   <footer class="footer">
@@ -100,6 +56,40 @@
       </form>
     </div>
   </div>
+
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__close-button button"></button>
+      <form action="#" name="add-profile" class="popup__form-element">
+        <h2 class="popup__title">Новое место</h2>
+        <input 
+          type="text" 
+          name="place-name" 
+          placeholder="Название" 
+          required 
+          class="popup__input popup__input_type_place">
+        <input 
+          type="text" 
+          name="place-url" 
+          placeholder="Ссылка на картинку" 
+          required 
+          class="popup__input popup__input_type_url">
+        <button type="submit" class="popup__add-button">Создать</button>
+      </form>
+
+    </div>
+  </div>
+
+  <template id="card-template">
+    <li class="element">
+      <img class="element__photo" src="#" alt="#">
+      <div class="element__info">
+        <h2 class="element__title"></h2>
+        <button type="button" class="element__like-button button"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="./scripts/index.js"></script>
 </body>
 </html>
