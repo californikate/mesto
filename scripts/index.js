@@ -19,8 +19,6 @@ const formElement = document.querySelector('.popup__form-element');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsOnline = document.querySelector('.elements__items');
 
-// определяем переменную для кнопки лайка
-
 
 // toggle добавления/удаления класса для открытия/закрытия попапа
 function toggleOpenPopup() {
@@ -56,14 +54,19 @@ function handleFormSubmit (evt) {
   toggleOpenPopup();
 };
 
-// Прикрепляем обработчики к формам, которые будут следить за событиями
+// функция нажатия кнопки лайка
+function handlelikeButton (evt) {
+  evt.target.classList.toggle('element__like-button_active');
+};
 
+// Прикрепляем обработчики к формам, которые будут следить за событиями
 addButton.addEventListener('click', handleAddButtonClick); // кнопка Добавить
 editButton.addEventListener('click', handleEditButtonClick); // кнопка Редактировать
-closeButton.addEventListener('click', toggleOpenPopup); // кнопка закрыть попап
+closeButton.addEventListener('click', toggleOpenPopup); // кнопка закрыть любой попап
 // popup.addEventListener('click', handleOverlayClick); // клик на оверлэй
 
 formElement.addEventListener('submit', handleFormSubmit); // отправка новых данных
+
 
 
 
@@ -99,6 +102,7 @@ initialCards.forEach((element) => {
   const cardContainer = cardTemplate.querySelector('.element').cloneNode(true);
   cardContainer.querySelector('.element__photo').src = element.link;
   cardContainer.querySelector('.element__title').textContent = element.name;
+  cardContainer.querySelector('.element__like-button').addEventListener('click', handlelikeButton);
   // отображаем на странице 
   cardsOnline.append(cardContainer);
 });
