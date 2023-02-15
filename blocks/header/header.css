@@ -1,5 +1,5 @@
 .header {
-  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
   padding-top: 45px;
   box-sizing: border-box;
@@ -9,15 +9,15 @@
   border-bottom: 1px solid rgba(84,84,84,0.7);
 }
 
-/* @media screen and (max-width: 918px) {
+@media screen and (max-width: 920px) {
   .header {
     max-width: 581px;
   }
 }
 
-@media screen and (max-width: 618px) {
+@media screen and (max-width: 320px) {
   .header {
-    max-width: 282px;
+    max-width: 320px;
     padding-top: 28px;
   }
-} */
+}

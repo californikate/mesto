@@ -5,11 +5,11 @@
   padding-bottom: 41px;
 }
 
-/* @media screen and (max-width: 618px) {
+@media screen and (max-width: 620px) {
   .header__logo {
     width: 103.74px;
     height: 24.4px;
     padding-bottom: 31.6px;
     padding-left: 27px;
   }
-} */
+}

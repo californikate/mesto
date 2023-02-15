@@ -4,9 +4,17 @@
   gap: 30px;
 }
 
-/* @media screen and (max-width: 918px) {
+@media screen and (max-width: 920px) {
+  .profile__info {
+    max-width: 420px;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 620px) {
   .profile__info {
     flex-direction: column;
+    width: 100%;
     gap: 26px;
   }
-} */
+}

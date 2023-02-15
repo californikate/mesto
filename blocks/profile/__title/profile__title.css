@@ -11,10 +11,17 @@
   overflow: hidden;
 }
 
-/* @media screen and (max-width: 618px) {
+@media screen and (max-width: 920px) {
+  .profile__title {
+    max-width: 250px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 620px) {
   .profile__title {
     max-width: 220px;
     font-size: 27px;
     line-height: 1.2;
   }
-} */
+}
