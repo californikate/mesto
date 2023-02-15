@@ -11,16 +11,16 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .profile__subtitle {
     margin-right: auto;
     margin-left: auto;
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 618px) {
   .profile__subtitle {
     max-width: 220px;
     font-size: 14px;
   }
-}
+} */

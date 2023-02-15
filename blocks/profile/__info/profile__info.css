@@ -4,9 +4,9 @@
   gap: 30px;
 }
 
-@media screen and (max-width: 918px) {
+/* @media screen and (max-width: 918px) {
   .profile__info {
     flex-direction: column;
     gap: 26px;
   }
-}
+} */

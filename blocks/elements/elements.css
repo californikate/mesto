@@ -1,11 +1,24 @@
 .elements {
   max-width: 100%;
+  margin: 0 auto;
   padding-top: 50px;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 560px) {
+/* @media screen and (max-width: 918px) {
+  .elements {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .elements {
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .elements {
     padding: 36px 19px 0 19px;
   }
-}
+} */

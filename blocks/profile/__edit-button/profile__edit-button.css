@@ -9,10 +9,10 @@
   opacity: .6;
 }
 
-@media screen and (max-width: 560px) {
+/* @media screen and (max-width: 618px) {
   .profile__edit-button {
     width: 18px;
     height: 18px;
     background-size: contain;
   }
-}
+} */

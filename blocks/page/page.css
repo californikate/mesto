@@ -5,6 +5,8 @@
 
   color: #fff;
   margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
 
   font-family: "Inter", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -13,17 +15,4 @@
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-}
-
-@media screen and (max-width: 918px) {
-  .page {
-    padding: 0 19px;
-    box-sizing: border-box;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .page {
-    padding: 0;
-  }
 }
