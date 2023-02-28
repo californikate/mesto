@@ -35,10 +35,19 @@ const imagePopupClose = imagePopup.querySelector('.popup__close-button');
 // функции добавления/удаления класса для открытия/закрытия любого попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 };
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+};
+
+// закрытие попапа клавишей ESC
+function closePopupEsc(evt) {
+  if(evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  }
 };
 
 // функция открытия попапа по клику на кнопку "Редактировать"
@@ -68,12 +77,18 @@ function handleFormCreateCard (evt) {
   closePopup(addPopup);
 };
 
-// дополнительно закрытие окна по клику на оверлэй - необходимо отредактировать
-/* function handleOverlayClick(event) {
-  if (event.target === event.currentTarget) {
-    closePopup();
-  }
-}; */
+// закрытие окна по клику на оверлэй
+function handleOverlayClick(){
+  const popups = Array.from(document.querySelectorAll('.popup'));
+  popups.forEach((popupElement) => {
+    popupElement.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+        closePopup(evt.target);
+      };
+    });
+  });
+};
+
 
 // создание карточки
 function createElement(name, link) {
@@ -117,13 +132,14 @@ initialCards.forEach(function (card) {
   cardsList.append(element);
 });
 
-
 // Прикрепляем обработчики к формам, которые будут следить за событиями
 editButton.addEventListener('click', handleEditButtonClick); // кнопка "Редактировать"
 
 // функция открытия попапа по клику на кнопку "Добавить"
 addButton.addEventListener('click', function() {
-  openPopup(addPopup)
+  placeNameInput.value = '';
+  placeUrlInput.value = '';
+  openPopup(addPopup);
 });
 
 editProfileForm.addEventListener('submit', handleFormEditProfile); // отправка новых данных
@@ -135,7 +151,7 @@ editPopupClose.addEventListener('click', function() {
 });
 
 // закрыть форму добавления
-addProfileClose.addEventListener('click', function () {
+addProfileClose.addEventListener('click', function() {
   closePopup(addPopup)
 });
 
@@ -144,4 +160,7 @@ imagePopupClose.addEventListener('click',function () {
   closePopup(imagePopup)
 });
 
-// popup.addEventListener('click', handleOverlayClick); // клик на оверлэй
+handleOverlayClick();
+
+
+
