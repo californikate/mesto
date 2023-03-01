@@ -147,7 +147,7 @@ addProfileForm.addEventListener('submit', handleFormCreateCard); // создан
 
 // закрыть форму редактирование профиля
 editPopupClose.addEventListener('click', function() {
-  closePopup(editPopup)
+  closePopup(editPopup);
 });
 
 // закрыть форму добавления
