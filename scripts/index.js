@@ -56,6 +56,7 @@ function handlePopupProfileOpenButton() {
   // При открытии формы поля "Имя" и "О себе" заполнены теми значениями, которые отображаются на странице
   profileNameInput.value = profileName.textContent;
   profileJobInput.value = profileJob.textContent;
+  toggleButton(formEditProfile, formValidationConfig);
 };
 
 // Специальное событие submit отправляет форму попапа "Редактировать"
@@ -139,6 +140,7 @@ popupProfileOpenButton.addEventListener('click', handlePopupProfileOpenButton); 
 popupAddPlaceOpenButton.addEventListener('click', function() {
   placeNameInput.value = '';
   placeUrlInput.value = '';
+  toggleButton(formCreateCard, formValidationConfig);
   openPopup(popupAddPlace);
 });
 
