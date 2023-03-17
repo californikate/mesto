@@ -79,3 +79,4 @@ function handleFormInput(evt, config) {
 };
 
 enableValidation(formValidationConfig);
+
