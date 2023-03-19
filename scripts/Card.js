@@ -21,7 +21,7 @@ export default class Card {
   }
 
   _handleDeleteButton = () => {
-    this._cardElement.remove();
+    this._element.remove();
   }
 
   _setEventListeners = () => {
@@ -30,7 +30,7 @@ export default class Card {
     });
 
     this._buttonDelete.addEventListener('click', () => {
-      this._handleDeleteButton;
+      this._handleDeleteButton();
     });
 
     this._cardImage.addEventListener('click', () => {

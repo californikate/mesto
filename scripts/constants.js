@@ -25,4 +25,13 @@ const initialCards = [
   }
 ];
 
-export { initialCards };
+const formValidationConfig = {
+  formSelector: '.popup__form-element',
+  inputSelector: '.popup__input',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible',
+  buttonSelector: '.popup__save-button',
+  buttonDisabledClass: 'popup__save-button_disabled'
+};
+
+export { initialCards, formValidationConfig };

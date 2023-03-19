@@ -1,6 +1,6 @@
 import Card from './Card.js';
-import * as data from './FormValidator.js';
-import { initialCards } from './constants.js';
+import FormValidator from './FormValidator.js';
+import { initialCards, formValidationConfig } from './constants.js';
 
 // определяем переменные для кнопок открытия попапов
 const popupProfileOpenButton = document.querySelector('.profile__edit-button');
@@ -36,11 +36,19 @@ const cardsList = document.querySelector('.elements__items');
 const popupImagePhoto = document.querySelector('.popup__image');
 const popupImageCaption = document.querySelector('.popup__caption');
 
+// включаем валидацию каждой формы
 
+const formValidatorProfile = new FormValidator(formValidationConfig, formEditProfile);
+formValidatorProfile.enableValidation();
+
+const formValidatorCard = new FormValidator(formValidationConfig, formCreateCard);
+formValidatorCard.enableValidation();
+
+// создание карточки
 function createCard (data) {
   return new Card(data, '#card-template', openPopupImage).generateCard();
 }
-
+// создание массива карточек
 initialCards.forEach((data) => {
   cardsList.append(createCard(data));
 });
@@ -84,7 +92,8 @@ function handlePopupProfileOpenButton() {
   // При открытии формы поля "Имя" и "О себе" заполнены теми значениями, которые отображаются на странице
   profileNameInput.value = profileName.textContent;
   profileJobInput.value = profileJob.textContent;
-  toggleButton(formEditProfile, formValidationConfig);
+  // удалить ошибки
+  formValidatorProfile.resetValidateForm();
 };
 
 // Специальное событие submit отправляет форму попапа "Редактировать"
@@ -92,7 +101,6 @@ function handleFormEditProfile (evt) {
   evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileJob.textContent = profileJobInput.value;
-  // закрытие формы после отправки
   closePopup(popupEditProfile);
 };
 
@@ -101,24 +109,29 @@ popupProfileCloseButton.addEventListener('click', function() {
   closePopup(popupEditProfile);
 });
 
-popupProfileOpenButton.addEventListener('click', handlePopupProfileOpenButton); // кнопка "Редактировать"
-formEditProfile.addEventListener('submit', handleFormEditProfile); // отправка новых данных
+popupProfileOpenButton.addEventListener('click', handlePopupProfileOpenButton); // слущатель кнопки "Редактировать"
+formEditProfile.addEventListener('submit', handleFormEditProfile); // слушатель кнопки отправки новых данных
 
 // открыть попап по клику на кнопку "Добавить"
 popupAddPlaceOpenButton.addEventListener('click', function() {
   placeNameInput.value = '';
   placeUrlInput.value = '';
-  toggleButton(formCreateCard, formValidationConfig);
   openPopup(popupAddPlace);
+  // удалить ошибки
+  formValidatorCard.resetValidateForm();
 });
 
 // Специальное событие submit отправляет форму попапа "Добавить"
 function handleFormCreateCard (evt) {
   evt.preventDefault();
-  const element = createElement(placeNameInput.value, placeUrlInput.value);
-  cardsList.prepend(element);
+
+  cardsList.prepend(createCard({
+    name: placeNameInput.value,
+    link: placeUrlInput.value
+  }));
+
   evt.target.reset();
-  // закрытие формы после отправки
+
   closePopup(popupAddPlace);
 };
 
@@ -127,7 +140,7 @@ popupAddPlaceCloseButton.addEventListener('click', function() {
   closePopup(popupAddPlace)
 });
 
-formCreateCard.addEventListener('submit', handleFormCreateCard); // создание новой карточки
+formCreateCard.addEventListener('submit', handleFormCreateCard); // слушатель кнопки "Создать" новую карточку
 
 // открыть попап с большой картинкой
 function openPopupImage (link, name) {
@@ -142,3 +155,4 @@ function openPopupImage (link, name) {
 popupImageCloseButton.addEventListener('click',function () {
   closePopup(popupImage)
 });
+
