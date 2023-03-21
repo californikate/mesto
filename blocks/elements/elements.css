@@ -1,5 +1,6 @@
 .elements {
   width: 100%;
+  min-height: 45vh;
   padding-top: 50px;
   box-sizing: border-box;
 }
