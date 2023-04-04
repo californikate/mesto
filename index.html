@@ -7,7 +7,7 @@
   <meta name="keywords" content="путешествия по россии">
   <meta name="author" content="Катерина Некрасова">
   <link rel="stylesheet" href="./pages/index.css">
-  <script defer src="./scripts/index.js" type="module"></script>
+  <script defer src="./pages/index.js" type="module"></script>
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -43,7 +43,7 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <input 
           type="text" 
-          name="user-name" 
+          name="name" 
           id="name-input"
           placeholder="Имя" 
           required 
@@ -54,7 +54,7 @@
         <span id="name-input-error" class="popup__input-error"></span>
         <input 
           type="text" 
-          name="user-job" 
+          name="job" 
           id="job-input"
           placeholder="О себе" 
           required 
@@ -75,7 +75,7 @@
         <h2 class="popup__title">Новое место</h2>
         <input 
           type="text" 
-          name="place-name" 
+          name="place" 
           id="place-input"
           placeholder="Название" 
           required 
@@ -86,7 +86,7 @@
         <span id="place-input-error" class="popup__input-error"></span>
         <input 
           type="url" 
-          name="place-url" 
+          name="link" 
           id="url-input"
           placeholder="Ссылка на картинку" 
           required 
