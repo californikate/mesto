@@ -6,18 +6,18 @@
   <meta name="description" content="проектная работа Место на Яндекс.Практикуме">
   <meta name="keywords" content="путешествия по россии">
   <meta name="author" content="Катерина Некрасова">
-  <link rel="stylesheet" href="./pages/index.css">
-  <script defer src="./pages/index.js" type="module"></script>
+  <!-- link rel="stylesheet" href="./pages/index.css" -->
+  <!-- script defer src="./pages/index.js" type="module"></!-->
   <title>Mesto</title>
 </head>
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="логотип сайта.">
+    <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип сайта.">
   </header>
   <main class="main">
     <section class="profile" aria-label="профиль">
       <div class="profile__info">
-        <img class="profile__avatar" src="./images/image.png" alt="аватар пользователя.">
+        <img class="profile__avatar" src="<%=require('./images/image.png')%>" alt="аватар пользователя.">
         <div class="profile__container">
           <div class="profile__name">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
