@@ -14,8 +14,6 @@ import { initialCards,
   popupAddPlaceOpenButton, 
   formEditProfile,
   formCreateCard,
-  profileNameInput,
-  profileJobInput,
   cardTemplateSelector,
   cardsListSelector,
   popupEditProfileSelector,
@@ -53,7 +51,7 @@ const cardSection = new Section({
   renderer: renderCard
   }, cardsListSelector);
 
-cardSection.renderer();
+cardSection.renderItems();
 
 // информация о пользователе
 const userInfo = new UserInfo({
@@ -65,9 +63,7 @@ const userInfo = new UserInfo({
 const handlePopupProfileOpenButton = () => {
   
   // При открытии формы поля "Имя" и "О себе" заполнены теми значениями, которые отображаются на странице
-  const {name, job} = userInfo.getUserInfo();
-  profileNameInput.value = name;
-  profileJobInput.value = job;
+  popupEditProfile.setInputValues(userInfo.getUserInfo());
 
   // удалить ошибки
   formValidatorProfile.resetValidateForm();

@@ -48,8 +48,3 @@ export const popupAddPlaceOpenButton = document.querySelector('.profile__add-but
 //определяем переменную для формы отправки данных
 export const formEditProfile = document.querySelector('#edit-profile');
 export const formCreateCard = document.querySelector('#add-profile');
-
-
-// определяем переменные для значения полей "Имя" и "О себе"
-export const profileNameInput = document.querySelector('.popup__input_type_name');
-export const profileJobInput = document.querySelector('.popup__input_type_job');
