@@ -1,45 +1,12 @@
 export default class Api {
-  constructor(options) {
-    this.url = options.url;
-    this.headers = options.headers;
+  constructor({ baseUrl, headers }) {
+    this._url = baseUrl;
+    this._headers = headers;
   }
-
-  async getInitialCards() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/cards', {
-      headers: {
-        authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93'
-      }
-    }).then(res => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-  }
-
-  async handleUserAvatar(avatar) {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me/avatar', {
-      method: 'PATCH',  
-      headers: {
-          authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          avatar: avatar
-        })
-      }).then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-    }
 
   async getUserInfo() {
     return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me', {
-      headers: {
-        authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93'
-      }
+      headers: this._headers
     }).then(res => {
       if (res.ok) {
         return res.json()
@@ -51,10 +18,7 @@ export default class Api {
   async editUserInfo({name, about}) {
     return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me', {
       method: 'PATCH',
-      headers: {
-        authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
         about: about
@@ -67,13 +31,36 @@ export default class Api {
     }) 
   }
 
-  async addNewCard({name, link}) {
+  async editUserAvatar({ avatar }) {
+    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/users/me/avatar', {
+      method: 'PATCH',  
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatar
+      })
+    }).then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
+  }
+
+  async getInitialCards() {
+    return fetch('https://mesto.nomoreparties.co/v1/cohort-64/cards', {
+      headers: this._headers
+    }).then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
+  }
+
+  async addNewCard({ name, link }) {
     return fetch('https://mesto.nomoreparties.co/v1/cohort-64/cards', {
       method: 'POST',
-      headers: {
-        authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
         link: link
@@ -86,23 +73,22 @@ export default class Api {
     }) 
   }
 
-  deleteCard() {
-
+  async deleteCard(cardId) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers,
+    }).then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }) 
   }
 
-  getLikesAmount() {
-
-  }
-
-
-
-  async putLike() {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${card._id}/likes`, {
+  async putLike(cardId) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}/likes`, {
     method: 'PUT',  
-    headers: {
-        authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93',
-        'Content-Type': 'application/json'
-      }
+    headers: this._headers
     }).then(res => {
       if (res.ok) {
         return res.json()
@@ -111,12 +97,10 @@ export default class Api {
     })
   }
 
-  async deleteLike() {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${card._id}/likes`, {
+  async deleteLike(cardId) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}/likes`, {
     method: 'DELETE',  
-    headers: {
-        authorization: '3f5cc6a6-98a9-4c26-9b05-22f5deba7e93',
-      }
+    headers: this._headers
     }).then(res => {
       if (res.ok) {
         return res.json()
@@ -124,7 +108,5 @@ export default class Api {
       return Promise.reject(`Ошибка: ${res.status}`);
     })
   }
-
-  
 }
 
