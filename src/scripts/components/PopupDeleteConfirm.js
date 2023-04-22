@@ -4,6 +4,7 @@ export default class PopupDeleteConfirm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._popup = document.querySelector(popupSelector);
+    this._form = this._popup.querySelector('.popup__form-element')
     this._handleFormSubmit = handleFormSubmit;
 
     this._buttonSubmit = this._popup.querySelector('.popup__save-button');
@@ -15,27 +16,23 @@ export default class PopupDeleteConfirm extends Popup {
     this._card = card;
   }
 
-  renderLoading(isLoading) {
+  setEventListeners() {
+    super.setEventListeners();
+    
+    this._form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._cardId, this._card);
+      this.close();
+    });
+  }  
+
+  renderLoading(isLoading, text) {
     if (isLoading) {
-      this._buttonSubmit.textContent = 'Удаление...';
+      this._buttonSubmit.textContent = text;
       this._buttonSubmit.disabled = true;
     } else {
       this._buttonSubmit.textContent = this.textButtonSubmit;
       this._buttonSubmit.disabled = false;
     }
   }
-
-  setEventListeners() {
-    super.setEventListeners();
-    // this._buttonDelete.addEventListener('click', this._deleteCard(this));
-    this._popup.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._cardId, this._card);
-      this.close();
-    });
-  }
-
-  // _deleteCard() {
-  //   this._handleDeleteCard(this._cardId, this._card);
-  // }
 }

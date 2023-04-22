@@ -57,13 +57,13 @@ export default class Api {
     })
   }
 
-  async addNewCard({ name, link }) {
+  async addNewCard(data) {
     return fetch('https://mesto.nomoreparties.co/v1/cohort-64/cards', {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link
+        name: `${data.place}`,
+        link: `${data.link}`
       })
     }).then(res => {
       if (res.ok) {
@@ -73,7 +73,7 @@ export default class Api {
     }) 
   }
 
-  async deleteCard(cardId) {
+  async deleteCards(cardId) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-64/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,

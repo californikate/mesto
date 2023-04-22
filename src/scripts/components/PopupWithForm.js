@@ -22,6 +22,14 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
 
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      // тут вставляем в `value` инпута данные из объекта по атрибуту `name` этого инпута
+      input.value = data[input.name];
+    });
+  }
+
+  
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
@@ -31,23 +39,14 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-
-  setInputValues(data) {
-    this._inputList.forEach((input) => {
-      // тут вставляем в `value` инпута данные из объекта по атрибуту `name` этого инпута
-      input.value = data[input.name];
-    });
-  }
-
-
   close() {
     super.close();
     this._form.reset();
   }
 
-  renderLoading(isLoading) {
+  renderLoading(isLoading, text) {
     if (isLoading) {
-      this._buttonSubmit.textContent = 'Сохранение...';
+      this._buttonSubmit.textContent = text;
       this._buttonSubmit.disabled = true;
     } else {
       this._buttonSubmit.textContent = this.textButtonSubmit;
