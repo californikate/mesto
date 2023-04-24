@@ -126,6 +126,7 @@ const handleFormEditAvatar = (data) => {
   api.editUserAvatar(data)
     .then((data) => {
       userInfo.setUserInfo(data);
+      popupEditAvatar.close();
     })
     .catch((err) => console.log(err))
     .finally(() => popupEditAvatar.renderLoading(false));
@@ -137,6 +138,7 @@ const handleFormEditProfile = (data) => {
   api.editUserInfo(data)
     .then((data) => {
       userInfo.setUserInfo(data);
+      popupEditProfile.close();
     })
     .catch((err) => console.log(err))
     .finally(() => popupEditProfile.renderLoading(false));
@@ -148,6 +150,7 @@ const handleFormCreateCard = (data) => {
   api.addNewCard(data)
     .then((data) => {
       renderCard(data);
+      popupAddPlace.close();
     })
     .catch((err) => console.log(err))
     .finally(() => popupAddPlace.renderLoading(false))
@@ -159,6 +162,7 @@ const handlePopupDeleteConfirm = (card, cardId) => {
     .then(() => {
     // card.deleteCard(data._id);
     card.remove();
+    popupDeleteConfirmComponent.close();
   })
   .catch((err) => console.log(err))
   .finally(() => popupDeleteConfirmComponent.renderLoading(false))
@@ -168,7 +172,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([data, cards]) => {
     userInfo.setUserInfo(data);
     userId = data._id;
-    cardSection.renderItems(cards);
+    cardSection.renderItems(cards.reverse());
   })
   .catch((err) => console.log(err));
 

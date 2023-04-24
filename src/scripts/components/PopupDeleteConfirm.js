@@ -22,7 +22,6 @@ export default class PopupDeleteConfirm extends Popup {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._cardId, this._card);
-      this.close();
     });
   }  
 
